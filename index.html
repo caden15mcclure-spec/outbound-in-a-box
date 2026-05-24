@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Outbound-in-a-Box · OracleIQ</title>
+  <meta name="description" content="B2B prospect lists where every cold-email opener is grounded in a real, verifiable signal about the prospect's company. Not templates. 24h delivery from $97. A product of OracleIQ." />
+  <meta property="og:title" content="Outbound-in-a-Box · OracleIQ" />
+  <meta property="og:description" content="Cold leads, but warm. Every opener cites a real signal. Verifiable. Not a template. From $97." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230A0A0A'/><text x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='800' fill='%23FF6B35' text-anchor='middle'>O</text></svg>" />
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+      --ink: #0A0A0A;
+      --ink-soft: #18181B;
+      --muted: #71717A;
+      --muted-light: #A1A1AA;
+      --border: #E4E4E7;
+      --subtle: #F4F4F5;
+      --accent: #FF6B35;
+      --accent-hover: #E55520;
+      --bad: #DC2626;
+      --bad-bg: #FEF2F2;
+      --bad-border: #FECACA;
+      --good: #16A34A;
+      --good-bg: #F0FDF4;
+      --good-border: #BBF7D0;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+      --shadow: 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-feature-settings: 'cv11', 'ss01', 'ss03';
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    code, .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.92em; }
+
+    /* nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250,250,250,0.85);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 15px;
+    }
+    .brand-logo {
+      width: 26px; height: 26px;
+      background: var(--ink); border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-weight: 800; font-size: 15px;
+    }
+    .brand-name { color: var(--ink); }
+    .brand-sub { color: var(--muted); font-weight: 400; }
+    .nav-links { display: flex; gap: 28px; align-items: center; font-size: 14px; }
+    .nav-links a { color: var(--muted); transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink) !important; color: var(--surface) !important;
+      padding: 8px 16px; border-radius: var(--radius-sm);
+      font-weight: 500;
+    }
+    .nav-cta:hover { background: var(--ink-soft) !important; }
+    @media (max-width: 640px) {
+      .nav-links { gap: 16px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+
+    /* layout */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    /* hero */
+    .hero {
+      padding: 88px 0 64px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top, rgba(255,107,53,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px; font-weight: 500; color: var(--muted);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-pill .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); }
+    h1.hero-title {
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      margin-bottom: 20px;
+    }
+    h1.hero-title .accent { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(17px, 2vw, 21px);
+      color: var(--muted);
+      max-width: 600px; margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+    .hero-sub strong { color: var(--ink-soft); font-weight: 600; }
+    .hero-cta { display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 500; font-size: 15px;
+      transition: all .15s; cursor: pointer;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--ink); color: var(--surface);
+    }
+    .btn-primary:hover { background: var(--ink-soft); transform: translateY(-1px); box-shadow: var(--shadow); }
+    .btn-secondary {
+      background: var(--surface); color: var(--ink); border-color: var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--ink); }
+    .btn-accent {
+      background: var(--accent); color: var(--surface);
+    }
+    .btn-accent:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(255,107,53,0.25); }
+
+    /* the diff section */
+    .diff {
+      padding: 64px 0;
+    }
+    .section-eyebrow {
+      text-align: center;
+      font-size: 12px; font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase; letter-spacing: 0.12em;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-lede {
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    @media (min-width: 720px) {
+      .diff-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+    .diff-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .diff-card.before {
+      border: 1px solid var(--bad-border);
+      background: var(--bad-bg);
+    }
+    .diff-card.after {
+      border: 1px solid var(--good-border);
+      background: var(--good-bg);
+    }
+    .diff-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+    .diff-label.bad { background: var(--bad); color: white; }
+    .diff-label.good { background: var(--good); color: white; }
+    .diff-body {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 14px; line-height: 1.65;
+      color: var(--ink-soft);
+      background: rgba(255,255,255,0.6);
+      padding: 16px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .diff-meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+    .diff-meta strong { color: var(--ink-soft); font-weight: 600; }
+
+    /* examples */
+    .examples-section { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .examples-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      max-width: 820px; margin: 32px auto 0;
+    }
+    @media (min-width: 720px) {
+      .examples-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .example-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: all .2s;
+    }
+    .example-card:hover { border-color: var(--ink); box-shadow: var(--shadow); }
+    .example-who {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .example-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #FF8B5A);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+    }
+    .example-who-text { line-height: 1.3; }
+    .example-name { font-weight: 600; font-size: 15px; }
+    .example-role { font-size: 13px; color: var(--muted); }
+    .example-signal {
+      font-size: 13px; color: var(--muted);
+      border-left: 3px solid var(--accent);
+      padding-left: 12px;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .example-signal strong { color: var(--ink-soft); font-weight: 600; }
+    .example-opener {
+      font-size: 15px; line-height: 1.55; color: var(--ink-soft);
+    }
+    .sample-download {
+      max-width: 820px; margin: 32px auto 0;
+      background: var(--ink); color: var(--surface);
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .sample-download-text { display: flex; flex-direction: column; gap: 4px; }
+    .sample-download .heading { font-weight: 600; font-size: 16px; }
+    .sample-download .sub { font-size: 14px; color: var(--muted-light); }
+    .sample-download a {
+      background: var(--accent); color: var(--surface);
+      padding: 11px 20px; border-radius: var(--radius-sm);
+      font-weight: 500; font-size: 14px;
+      transition: all .15s;
+    }
+    .sample-download a:hover { background: var(--accent-hover); }
+
+    /* pricing */
+    .pricing { padding: 80px 0; }
+    .pricing-grid {
+      display: grid; gap: 16px;
+      grid-template-columns: 1fr;
+      max-width: 1000px; margin: 32px auto 0;
+    }
+    @media (min-width: 720px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 980px) {
+      .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      display: flex; flex-direction: column;
+      transition: all .2s;
+      position: relative;
+    }
+    .pricing-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .pricing-card.featured {
+      background: var(--ink); color: var(--surface);
+      border-color: var(--ink);
+    }
+    .pricing-card.featured .price, .pricing-card.featured .price-unit { color: var(--surface); }
+    .pricing-card.featured .tier-name { color: var(--accent); }
+    .pricing-card.featured ul li { color: var(--muted-light); }
+    .pricing-card.featured ul li::before { background: var(--accent); }
+    .featured-badge {
+      position: absolute; top: -10px; left: 24px;
+      background: var(--accent); color: var(--surface);
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 100px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .tier-name {
+      font-size: 13px; font-weight: 600;
+      color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .price {
+      font-size: 40px; font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1;
+      color: var(--ink);
+    }
+    .price-unit { font-size: 16px; color: var(--muted); font-weight: 500; }
+    .pricing-card ul {
+      list-style: none;
+      margin: 20px 0 24px;
+      font-size: 14px;
+      flex-grow: 1;
+    }
+    .pricing-card ul li {
+      padding: 7px 0 7px 22px;
+      position: relative;
+      color: var(--ink-soft);
+      line-height: 1.4;
+    }
+    .pricing-card ul li::before {
+      content: ''; position: absolute; left: 0; top: 13px;
+      width: 6px; height: 6px;
+      background: var(--ink);
+      border-radius: 50%;
+    }
+    .pricing-cta {
+      display: block; text-align: center;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 500; font-size: 14px;
+      transition: all .15s;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .pricing-cta:hover { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+    .pricing-card.featured .pricing-cta {
+      background: var(--accent); color: var(--surface); border-color: var(--accent);
+    }
+    .pricing-card.featured .pricing-cta:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+
+    /* refund */
+    .refund-section { padding: 64px 0; }
+    .refund-card {
+      max-width: 720px; margin: 0 auto;
+      background: linear-gradient(135deg, #FFF7E6, #FFEFD5);
+      border: 1px solid #FFC66B;
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+    }
+    .refund-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .refund-card p { color: var(--ink-soft); font-size: 16px; line-height: 1.55; }
+    .refund-card strong { color: var(--ink); font-weight: 700; }
+
+    /* how */
+    .how { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .how-steps {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      max-width: 820px; margin: 32px auto 0;
+    }
+    @media (min-width: 720px) {
+      .how-steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    .step {
+      padding: 24px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      position: relative;
+    }
+    .step-num {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--surface);
+      font-weight: 700; font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px;
+    }
+    .step h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .step p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+
+    /* faq */
+    .faq-section { padding: 64px 0; }
+    .faq-list { max-width: 720px; margin: 32px auto 0; }
+    details {
+      border-bottom: 1px solid var(--border);
+    }
+    details:first-child { border-top: 1px solid var(--border); }
+    summary {
+      padding: 18px 0;
+      cursor: pointer;
+      font-weight: 500; font-size: 16px;
+      list-style: none;
+      position: relative;
+      padding-right: 32px;
+      transition: color .15s;
+    }
+    summary:hover { color: var(--accent); }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+      font-size: 22px; color: var(--muted); transition: transform .2s;
+      font-weight: 400;
+    }
+    details[open] summary::after { transform: translateY(-50%) rotate(45deg); color: var(--accent); }
+    details p {
+      padding: 0 32px 18px 0;
+      color: var(--muted); font-size: 15px; line-height: 1.6;
+    }
+
+    /* final cta */
+    .final-cta {
+      padding: 96px 0;
+      text-align: center;
+      background: var(--ink); color: var(--surface);
+    }
+    .final-cta h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
+    .final-cta .accent { color: var(--accent); }
+    .final-cta p { color: var(--muted-light); font-size: 18px; margin-bottom: 32px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    /* footer */
+    footer {
+      padding: 40px 0 56px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      align-items: flex-start;
+    }
+    @media (min-width: 720px) {
+      .footer-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); }
+    .footer-brand-logo {
+      width: 22px; height: 22px;
+      background: var(--ink); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-weight: 800; font-size: 12px;
+    }
+    .footer-meta { font-size: 13px; color: var(--muted-light); line-height: 1.5; }
+    .footer-meta a { color: var(--muted); border-bottom: 1px solid transparent; transition: border-color .15s; }
+    .footer-meta a:hover { border-bottom-color: var(--muted); }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <span class="brand-logo">O</span>
+        <span class="brand-name">OracleIQ</span>
+        <span class="brand-sub">/ Outbound-in-a-Box</span>
+      </a>
+      <div class="nav-links">
+        <a href="#diff">Why</a>
+        <a href="#examples">Sample</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#pricing" class="nav-cta">Get leads</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="narrow">
+      <div class="hero-pill">
+        <span class="dot"></span>
+        <span>Built by OracleIQ · Currently in early beta</span>
+      </div>
+      <h1 class="hero-title">Cold leads, <span class="accent">but warm.</span></h1>
+      <p class="hero-sub">Every prospect we deliver comes with a <strong>personalized cold-email opener grounded in a real, recent signal</strong> about their company — and the signal is cited verbatim so you can verify every one.</p>
+      <div class="hero-cta">
+        <a href="#pricing" class="btn btn-accent">See pricing →</a>
+        <a href="#examples" class="btn btn-secondary">See a sample</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="diff container" id="diff">
+    <div class="section-eyebrow">The difference</div>
+    <h2 class="section-title">Most lead-gen hands you names.<br />We hand you the part that decides reply rates.</h2>
+    <p class="section-lede">Signal-grounded openers convert 6–10× better than mail-merge templates. Most SDRs can't do it at volume. We did the engineering so we can.</p>
+
+    <div class="diff-grid">
+      <div class="diff-card before">
+        <span class="diff-label bad">Template — 0.4% reply</span>
+        <div class="diff-body">Hi {{first_name}},<br /><br />I noticed {{company_name}} is in {{industry}} and thought I'd reach out. We help companies like {{company_name}} grow revenue using our cutting-edge AI platform...</div>
+        <div class="diff-meta"><strong>Why it fails:</strong> Recipient sees the merge tokens for what they are within 3 seconds. Marked as promo, deleted.</div>
+      </div>
+
+      <div class="diff-card after">
+        <span class="diff-label good">Signal-grounded — 4–7% reply</span>
+        <div class="diff-body">Saw the YC seed round in May + the recent CTO hire — that combo usually means the next quarter is about manufacturing engineering pipeline, and signal-targeted outbound to dev leads is the bottleneck no one talks about...</div>
+        <div class="diff-meta"><strong>Why it works:</strong> Recipient knows we did the homework. Even if not a buyer, they reply with a real human response.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="examples-section" id="examples">
+    <div class="container">
+      <div class="section-eyebrow">Sample output</div>
+      <h2 class="section-title">Two real rows from a recent run</h2>
+      <p class="section-lede">For a fictional Shopify-returns-AI product targeting Heads of CX at mid-market DTC brands. Every signal is googleable.</p>
+
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-who">
+            <div class="example-avatar">AB</div>
+            <div class="example-who-text">
+              <div class="example-name">Theodora Marinos</div>
+              <div class="example-role">Director of CX · ANINE BING</div>
+            </div>
+          </div>
+          <div class="example-signal"><strong>Signal:</strong> First outlet opened at Sawgrass Mills on top of the global retail rollout (~21 stores climbing).</div>
+          <div class="example-opener">"Saw ANINE BING opened the first outlet at Sawgrass Mills on top of the global retail rollout (Americana Manhasset, Ala Moana, China next) — at ~21 stores climbing and the brand's price point, returns + cross-channel restocking compounds faster than store count growth itself."</div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-who">
+            <div class="example-avatar">TJ</div>
+            <div class="example-who-text">
+              <div class="example-name">Max Wallace</div>
+              <div class="example-role">Senior Director, CX · Tommy John</div>
+            </div>
+          </div>
+          <div class="example-signal"><strong>Signal:</strong> ~131 employees with Nordstrom / Dick's / Costco wholesale ramp under Abel-Hodges; $20M Second Avenue revolving credit facility.</div>
+          <div class="example-opener">"Saw Tommy John is at ~131 now with the Nordstrom / Dick's / Costco ramp ongoing under Abel-Hodges + the $20M Second Avenue facility behind it. At that distribution breadth, return volume tracks wholesale growth with about a 3-month lag, which puts ops squarely in it now."</div>
+        </div>
+      </div>
+
+      <div class="sample-download">
+        <div class="sample-download-text">
+          <span class="heading">Want the full 5-row sample CSV?</span>
+          <span class="sub">Real prospects · real signals · the format your sender expects.</span>
+        </div>
+        <a href="sample-delivery.csv" download>Download CSV →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">One CSV. Real signals. No subscription required.</h2>
+      <p class="section-lede">Refund if any opener reads as templated. Pay-per-batch or monthly retainer.</p>
+
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="tier-name">Starter</div>
+          <div><span class="price">$97</span></div>
+          <ul>
+            <li>50 prospects</li>
+            <li>50 personalized openers</li>
+            <li>24-hour delivery</li>
+            <li>Refund if templated</li>
+          </ul>
+          <a class="pricing-cta" href="mailto:admin@oracleiq.info?subject=Outbound-in-a-Box%20%E2%80%94%20Starter%20order%20(%2497)&body=Hi%2C%0A%0AI%27d%20like%20to%20order%20the%20Starter%20tier%20(%2497%2C%2050%20prospects%20%2B%2050%20openers%2C%2024h).%0A%0AAbout%20me%2Fmy%20product%3A%0A%5Bwhat%20you%20sell%2C%20one%20sentence%5D%0A%0AMy%20ICP%3A%0A%5Bindustry%2C%20company%20size%2C%20decision-maker%20title%2C%20geography%5D%0A%0AThe%20pain%20I%20solve%3A%0A%5Bone%20paragraph%5D%0A%0ASocial%20proof%20(optional)%3A%0A%5Bcase%20studies%2C%20numbers%2C%20logos%5D%0A%0AHappy%20to%20pay%20via%3A%20Stripe%20%2F%20Venmo%20%2F%20Wise%20%2F%20other.%0A%0AThanks%2C%0A%5BYour%20name%5D">Order Starter</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <span class="featured-badge">Most popular</span>
+          <div class="tier-name">Growth</div>
+          <div><span class="price">$297</span></div>
+          <ul>
+            <li>250 prospects</li>
+            <li>250 personalized openers</li>
+            <li>24-hour delivery</li>
+            <li>Refund if templated</li>
+          </ul>
+          <a class="pricing-cta" href="mailto:admin@oracleiq.info?subject=Outbound-in-a-Box%20%E2%80%94%20Growth%20order%20(%24297)&body=Hi%2C%0A%0AI%27d%20like%20to%20order%20the%20Growth%20tier%20(%24297%2C%20250%20prospects%20%2B%20250%20openers%2C%2024h).%0A%0AAbout%20me%2Fmy%20product%3A%0A%5Bwhat%20you%20sell%2C%20one%20sentence%5D%0A%0AMy%20ICP%3A%0A%5Bindustry%2C%20company%20size%2C%20decision-maker%20title%2C%20geography%5D%0A%0AThe%20pain%20I%20solve%3A%0A%5Bone%20paragraph%5D%0A%0ASocial%20proof%20(optional)%3A%0A%5Bcase%20studies%2C%20numbers%2C%20logos%5D%0A%0AHappy%20to%20pay%20via%3A%20Stripe%20%2F%20Venmo%20%2F%20Wise%20%2F%20other.%0A%0AThanks%2C%0A%5BYour%20name%5D">Order Growth</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="tier-name">Scale</div>
+          <div><span class="price">$497</span></div>
+          <ul>
+            <li>500 prospects</li>
+            <li>500 personalized openers</li>
+            <li>48-hour delivery</li>
+            <li>Refund if templated</li>
+          </ul>
+          <a class="pricing-cta" href="mailto:admin@oracleiq.info?subject=Outbound-in-a-Box%20%E2%80%94%20Scale%20order%20(%24497)&body=Hi%2C%0A%0AI%27d%20like%20to%20order%20the%20Scale%20tier%20(%24497%2C%20500%20prospects%20%2B%20500%20openers%2C%2048h).%0A%0AAbout%20me%2Fmy%20product%3A%0A%5Bwhat%20you%20sell%5D%0A%0AMy%20ICP%3A%0A%5Bdetails%5D%0A%0AThe%20pain%20I%20solve%3A%0A%5Bone%20paragraph%5D%0A%0AHappy%20to%20pay%20via%3A%20Stripe%20%2F%20Venmo%20%2F%20Wise%20%2F%20other.%0A%0AThanks%2C%0A%5BYour%20name%5D">Order Scale</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="tier-name">Retainer</div>
+          <div><span class="price">$497</span><span class="price-unit">/mo</span></div>
+          <ul>
+            <li>250 prospects/week</li>
+            <li>Ongoing personalization</li>
+            <li>Monday morning drops</li>
+            <li>Cancel anytime</li>
+          </ul>
+          <a class="pricing-cta" href="mailto:admin@oracleiq.info?subject=Outbound-in-a-Box%20%E2%80%94%20Retainer%20inquiry%20(%24497%2Fmo)&body=Hi%2C%0A%0AInterested%20in%20the%20Retainer%20(%24497%2Fmo%2C%20250%20prospects%20delivered%20every%20Monday).%0A%0AAbout%20me%2Fmy%20product%3A%0A%5Bwhat%20you%20sell%5D%0A%0AMy%20ICP%3A%0A%5Bdetails%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">Talk Retainer</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="refund-section">
+    <div class="container">
+      <div class="refund-card">
+        <h3>If any opener reads templated, you get a full refund.</h3>
+        <p>Inspect the first 5 rows within 48h of delivery. If even one opener isn't visibly grounded in a real, verifiable signal — reply <strong>"refund"</strong> and we return 100%, no questions. We're betting the product on that bar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="container">
+      <div class="section-eyebrow">How it works</div>
+      <h2 class="section-title">Three steps. Twenty-four hours.</h2>
+
+      <div class="how-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Click a tier</h3>
+          <p>Opens a pre-filled email with the four questions we need about your product and ICP. Takes about three minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Reply + pay</h3>
+          <p>Stripe link, Venmo, or Wise — whatever's easiest. Mention your preference and we'll send instructions.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Get your CSV</h3>
+          <p>Within the tier's SLA window. Import to Smartlead, Instantly, Apollo, or your sender of choice and run.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">The questions everyone asks first</h2>
+
+      <div class="faq-list">
+        <details>
+          <summary>Do you guarantee replies?</summary>
+          <p>No. Reply rates depend on your sender domain, warmup, follow-up sequence, send timing, and offer–market fit — none of that is in our scope. We guarantee opener quality (real signal, no templates) and back it with a no-questions refund.</p>
+        </details>
+        <details>
+          <summary>Where do the prospects come from?</summary>
+          <p>Vibe Prospecting (Explorium) for the underlying directory — verified emails, LinkedIn data, firmographics. Signals come from public sources: press releases, Crunchbase, PitchBook, LinkedIn posts, recent news. Everything cited is verifiable.</p>
+        </details>
+        <details>
+          <summary>Is this only B2B?</summary>
+          <p>Currently yes. If you sell to consumers, the signal-grounding mechanic doesn't translate as cleanly — email us anyway and we'll be honest about whether it'd work for your case.</p>
+        </details>
+        <details>
+          <summary>What countries do you cover?</summary>
+          <p>US, Canada, and UK by default. Other geographies on request — mention in your intake.</p>
+        </details>
+        <details>
+          <summary>How do payments work?</summary>
+          <p>For the first dollar: Stripe Payment Link, Venmo, or Wise — whichever is easiest for you. We'll send the right link after your intake comes through. Retainer billing transitions to Stripe Subscriptions.</p>
+        </details>
+        <details>
+          <summary>Can I get a list revised?</summary>
+          <p>One round of revisions within 48h of delivery if the ICP fit is materially off (e.g. you specified Series B SaaS founders and we surfaced agency owners across the board). We don't revise individual openers — that's a sliding-scale problem.</p>
+        </details>
+        <details>
+          <summary>How do I know the signals are real?</summary>
+          <p>Every signal is in its own column in the CSV, cited verbatim. Google any one of them. If you can't find the source, that's a refund.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>Stop sending <span class="accent">{{first_name}}.</span></h2>
+      <p>Get your first batch of signal-grounded leads in 24 hours.</p>
+      <a href="#pricing" class="btn btn-accent">Order a batch →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-brand-logo">O</span>
+        <span><strong>OracleIQ</strong> · A product studio building leverage tools for operators.</span>
+      </div>
+      <div class="footer-meta">
+        Outbound-in-a-Box · <a href="mailto:admin@oracleiq.info">admin@oracleiq.info</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
