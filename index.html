@@ -418,6 +418,26 @@
     .step h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
     .step p { font-size: 14px; color: var(--muted); line-height: 1.55; }
 
+    /* lead-magnet */
+    .lead-magnet-section { padding: 56px 0; background: linear-gradient(135deg, #FFF7E6 0%, #FFE8C7 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .lead-magnet-card {
+      max-width: 760px; margin: 0 auto; padding: 0 24px;
+      text-align: center;
+    }
+    .lead-magnet-badge {
+      display: inline-block;
+      background: var(--ink); color: var(--accent);
+      font-size: 11px; font-weight: 700;
+      padding: 4px 10px; border-radius: 100px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .lead-magnet-section h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 14px; }
+    .lead-magnet-section .lm-sub { color: var(--ink-soft); font-size: 17px; line-height: 1.55; max-width: 540px; margin: 0 auto 28px; }
+    .lead-magnet-section .btn { background: var(--ink); color: var(--surface); }
+    .lead-magnet-section .btn:hover { background: var(--accent); }
+    .lead-magnet-fine { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
     /* comparison */
     .compare-section { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .compare-wrap { max-width: 980px; margin: 32px auto 0; overflow-x: auto; }
@@ -704,6 +724,16 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <section class="lead-magnet-section">
+    <div class="lead-magnet-card">
+      <span class="lead-magnet-badge">Try free first</span>
+      <h2>Not paying-ready? Get a free 10-prospect sample in 24h.</h2>
+      <p class="lm-sub">Email us your product + ICP. We'll send 10 prospects with personalized openers — same quality as the paid batches, just smaller. No payment, no credit card, no signup form. If it works, the paid tiers above are one click.</p>
+      <a class="btn btn-accent" href="mailto:admin@oracleiq.info?subject=Free%2010-prospect%20sample%20request&body=Hi%2C%0A%0AI%27d%20like%20to%20try%20the%20free%2010-prospect%20sample.%0A%0AWhat%20I%20sell%20(one%20sentence)%3A%0A%5Bone-line%20product%20description%5D%0A%0AMy%20ICP%20(industry%20%2B%20company%20size%20%2B%20decision-maker%20title%20%2B%20geography)%3A%0A%5BICP%20details%5D%0A%0AThe%20pain%20I%20solve%3A%0A%5Bbrief%5D%0A%0ATarget%20geographies%20(default%20US%2FCA%2FUK)%3A%0A%5Bgeos%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">Request free sample →</a>
+      <p class="lead-magnet-fine">Opens your email client with a templated request. We process within 24h and email the CSV back.</p>
     </div>
   </section>
 
