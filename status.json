@@ -1,0 +1,60 @@
+{
+  "as_of_iso": "2026-05-24T23:26:01.294409+00:00",
+  "sends": {
+    "tracker_files": 2,
+    "total_rows": 12,
+    "sent_rows": 8,
+    "skipped_rows": 4,
+    "replied_rows": 1,
+    "paid_rows": 0,
+    "sent_last_7_days": 8,
+    "sent_last_30_days": 8,
+    "replied_last_7_days": 1,
+    "first_send_iso": "2026-05-24T04:22:13+00:00",
+    "last_send_iso": "2026-05-24T23:44:18+00:00"
+  },
+  "free_samples": {
+    "requested": 0,
+    "delivered": 0,
+    "converted_paid": 0
+  },
+  "intake": {
+    "pending": 0,
+    "processed": 0,
+    "failed": 0,
+    "total_orders_ever": 0
+  },
+  "stripe": {
+    "sessions_processed": 0,
+    "last_poll_unix": 0
+  },
+  "safety_summary": {
+    "utc_day": "2026-05-24",
+    "utc_week_start": "2026-05-18",
+    "cold_send": {
+      "today": 0,
+      "soft": 20,
+      "hard": 30
+    },
+    "reply_autosend": {
+      "today": 0,
+      "hard": 50
+    },
+    "free_sample": {
+      "this_week": 0,
+      "soft": 15,
+      "hard": 25
+    },
+    "vibe_credit_usd": {
+      "today": 0.0,
+      "soft": 5.0,
+      "hard": 15.0
+    },
+    "bounce_rate_pct": {
+      "rolling": 0.0,
+      "n": 0,
+      "hard": 5.0
+    }
+  },
+  "halts": {}
+}
