@@ -418,6 +418,61 @@
     .step h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
     .step p { font-size: 14px; color: var(--muted); line-height: 1.55; }
 
+    /* comparison */
+    .compare-section { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .compare-wrap { max-width: 980px; margin: 32px auto 0; overflow-x: auto; }
+    .compare-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 720px; }
+    .compare-table th, .compare-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: middle;
+    }
+    .compare-table th {
+      font-weight: 600;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: var(--bg);
+    }
+    .compare-table th.us { color: var(--accent); }
+    .compare-table td.row-label { font-weight: 600; }
+    .compare-table td.us { background: rgba(255,107,53,0.04); font-weight: 600; color: var(--ink); }
+    .compare-table .check { color: var(--good); font-weight: 700; }
+    .compare-table .cross { color: var(--bad); font-weight: 700; }
+    .compare-note { text-align: center; font-size: 13px; color: var(--muted); margin-top: 16px; }
+
+    /* testimonial */
+    .testimonial-section { padding: 64px 0; }
+    .testimonial-card {
+      max-width: 720px; margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      position: relative;
+    }
+    .testimonial-mark { font-size: 48px; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+    .testimonial-quote {
+      font-size: 19px; line-height: 1.45;
+      color: var(--ink-soft);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+    .testimonial-meta { color: var(--muted); font-size: 14px; }
+    .testimonial-placeholder {
+      max-width: 720px; margin: 0 auto;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      text-align: center;
+      color: var(--muted-light);
+      font-size: 14px;
+      font-style: italic;
+    }
+
     /* faq */
     .faq-section { padding: 64px 0; }
     .faq-list { max-width: 720px; margin: 32px auto 0; }
@@ -652,6 +707,98 @@
     </div>
   </section>
 
+  <section class="compare-section">
+    <div class="container">
+      <div class="section-eyebrow">How we compare</div>
+      <h2 class="section-title">vs. doing it yourself with Apollo / Clay / Lemlist</h2>
+      <p class="section-lede">Other tools are great for what they do. We're different on the dimension that decides reply rates.</p>
+
+      <div class="compare-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>What you get</th>
+              <th>Apollo</th>
+              <th>Clay</th>
+              <th>Lemlist</th>
+              <th class="us">Outbound-in-a-Box</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Prospect data + verified email</td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td><span class="check">✓</span></td>
+              <td class="us"><span class="check">✓</span></td>
+            </tr>
+            <tr>
+              <td class="row-label">Personalized opener grounded in a real, recent signal per prospect</td>
+              <td>Mail-merge tokens only</td>
+              <td>AI variables (often templated)</td>
+              <td>Mail-merge + Liquid syntax</td>
+              <td class="us"><span class="check">✓</span> Done for you</td>
+            </tr>
+            <tr>
+              <td class="row-label">Signal cited verbatim so you can verify it</td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td class="us"><span class="check">✓</span> In its own column</td>
+            </tr>
+            <tr>
+              <td class="row-label">Time from sign-up to first usable batch</td>
+              <td>2-3 hours of setup + ICP refinement</td>
+              <td>Days of workflow building</td>
+              <td>1-2 hours of campaign config</td>
+              <td class="us">24 hours, zero setup</td>
+            </tr>
+            <tr>
+              <td class="row-label">Refund if openers read templated</td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td><span class="cross">✗</span></td>
+              <td class="us"><span class="check">✓</span> 100% no-questions</td>
+            </tr>
+            <tr>
+              <td class="row-label">Monthly cost to get started</td>
+              <td>$49+/mo subscription</td>
+              <td>$149+/mo subscription</td>
+              <td>$59+/mo subscription</td>
+              <td class="us">$97 one-time</td>
+            </tr>
+            <tr>
+              <td class="row-label">You operate the sending stack yourself</td>
+              <td>Yes (or pay extra for Smartlead)</td>
+              <td>Yes</td>
+              <td>Built-in</td>
+              <td class="us">Yes — import CSV into your sender</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="compare-note">If you need ongoing high-volume automated campaigns with built-in inbox warming + A/B testing, use Lemlist or Smartlead. If you want a CSV of prospects with personalization actually done, use us.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="container">
+      <!--
+      TESTIMONIAL SLOT — paste real customer quote here when first customer gives one.
+      Then uncomment + delete the placeholder block below.
+
+      <div class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-quote">[real customer quote — 1-2 sentences max about reply rate, time saved, or quality]</p>
+        <p class="testimonial-meta">— [first name + role + company]</p>
+      </div>
+      -->
+      <div class="testimonial-placeholder">
+        Customer testimonials appear here as soon as the first paying customer drops one. (We're new — first batch goes out 2026-05-24. If you're an early buyer, your quote ends up here and earns 25% lifetime referral commission on anyone who signs up after seeing it.)
+      </div>
+    </div>
+  </section>
+
   <section class="refund-section">
     <div class="container">
       <div class="refund-card">
@@ -670,17 +817,17 @@
         <div class="step">
           <div class="step-num">1</div>
           <h3>Click a tier</h3>
-          <p>Opens a pre-filled email with the four questions we need about your product and ICP. Takes about three minutes.</p>
+          <p>Stripe checkout opens. Takes a card, Apple Pay, Google Pay, or Link.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>Reply + pay</h3>
-          <p>Stripe link, Venmo, or Wise — whatever's easiest. Mention your preference and we'll send instructions.</p>
+          <h3>Pay + answer 3 intake fields</h3>
+          <p>What you sell · your ICP + pain point · target geographies. About two minutes at checkout.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
           <h3>Get your CSV</h3>
-          <p>Within the tier's SLA window. Import to Smartlead, Instantly, Apollo, or your sender of choice and run.</p>
+          <p>Delivered to your email within the tier SLA. Import to Smartlead, Instantly, Apollo, or your sender of choice.</p>
         </div>
       </div>
     </div>
