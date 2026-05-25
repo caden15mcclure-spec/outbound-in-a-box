@@ -302,6 +302,12 @@
 
       <input type="hidden" id="src" value="" />
       <input type="hidden" id="ref" value="" />
+      <input type="hidden" id="utm_medium" value="" />
+      <input type="hidden" id="utm_campaign" value="" />
+      <input type="hidden" id="utm_content" value="" />
+      <input type="hidden" id="utm_term" value="" />
+      <input type="hidden" id="landing_page" value="" />
+      <input type="hidden" id="form_page" value="" />
 
       <div class="grid2">
         <div class="field">
@@ -413,29 +419,96 @@
   </footer>
 
   <script>
-    // Free-sample form handler. Two jobs:
-    //   1. Capture source/referrer on page load (privacy-friendly attribution — no
-    //      cookies, no third-party tracker).
-    //   2. On submit, build a clean, human-readable email body that matches the
-    //      labels the autonomous reply-scan parser already understands ("What I
-    //      sell:", "My ICP:", "Pain I solve:", "Target geographies:"). Then route
-    //      to the user's email client via mailto: with the body pre-filled.
-    // Falls back gracefully: if JS doesn't run, the noscript block below tells the
+    // Free-sample form handler. Three jobs:
+    //   1. Capture all UTM params + first-touch landing page on first visit
+    //      (sessionStorage), refresh referrer on every visit. Privacy-friendly:
+    //      no cookies, no third-party tracker, no fingerprinting.
+    //   2. Persist first-touch attribution across multi-page sessions so a user
+    //      who lands on /blog/xxx/ and clicks through to /free-sample/ still
+    //      attributes correctly.
+    //   3. On submit, build a clean, human-readable email body that matches the
+    //      labels the autonomous reply-scan parser already understands. Append a
+    //      structured attribution footer the parser reads. Route via mailto:.
+    // Falls back gracefully: if JS doesn't run, the noscript block tells the
     // user how to send the same info manually.
     (function () {
-      var srcInput = document.getElementById('src');
-      var refInput = document.getElementById('ref');
-      var source = '';
-      var referrer = '';
+      var SS_KEY = 'oraq_first_touch_v1';
+
+      function readQs() {
+        var out = {
+          utm_source: '', utm_medium: '', utm_campaign: '',
+          utm_content: '', utm_term: ''
+        };
+        try {
+          var qs = new URLSearchParams(window.location.search);
+          // Back-compat: ?source= maps to utm_source.
+          out.utm_source = qs.get('utm_source') || qs.get('source') || '';
+          out.utm_medium = qs.get('utm_medium') || '';
+          out.utm_campaign = qs.get('utm_campaign') || '';
+          out.utm_content = qs.get('utm_content') || '';
+          out.utm_term = qs.get('utm_term') || '';
+        } catch (e) {}
+        return out;
+      }
+
+      // First-touch capture: if sessionStorage is empty OR the current URL has
+      // fresh UTM params, save them. UTM params on a later page override
+      // because they're a stronger signal than a stale first-touch.
+      var firstTouch = null;
+      var qsTouch = readQs();
+      var hasFreshUtm = !!(qsTouch.utm_source || qsTouch.utm_campaign);
       try {
-        var qs = new URLSearchParams(window.location.search);
-        source = qs.get('source') || qs.get('utm_source') || '';
-        referrer = document.referrer || '';
-        if (srcInput) srcInput.value = source;
-        if (refInput) refInput.value = referrer;
+        var stored = sessionStorage.getItem(SS_KEY);
+        if (stored && !hasFreshUtm) {
+          firstTouch = JSON.parse(stored);
+        } else {
+          firstTouch = {
+            utm_source: qsTouch.utm_source,
+            utm_medium: qsTouch.utm_medium,
+            utm_campaign: qsTouch.utm_campaign,
+            utm_content: qsTouch.utm_content,
+            utm_term: qsTouch.utm_term,
+            landing_page: window.location.pathname,
+            referrer: document.referrer || ''
+          };
+          sessionStorage.setItem(SS_KEY, JSON.stringify(firstTouch));
+        }
+      } catch (e) {
+        // sessionStorage may throw in private modes — degrade to current page only.
+        firstTouch = {
+          utm_source: qsTouch.utm_source,
+          utm_medium: qsTouch.utm_medium,
+          utm_campaign: qsTouch.utm_campaign,
+          utm_content: qsTouch.utm_content,
+          utm_term: qsTouch.utm_term,
+          landing_page: window.location.pathname,
+          referrer: document.referrer || ''
+        };
+      }
+
+      // Populate hidden inputs (still useful for any future server-form posting).
+      try {
+        var srcInput = document.getElementById('src');
+        var refInput = document.getElementById('ref');
+        if (srcInput) srcInput.value = firstTouch.utm_source || '';
+        if (refInput) refInput.value = firstTouch.referrer || '';
+        var setIf = function (id, v) {
+          var el = document.getElementById(id);
+          if (el) el.value = v || '';
+        };
+        setIf('utm_medium', firstTouch.utm_medium);
+        setIf('utm_campaign', firstTouch.utm_campaign);
+        setIf('utm_content', firstTouch.utm_content);
+        setIf('utm_term', firstTouch.utm_term);
+        setIf('landing_page', firstTouch.landing_page);
+        setIf('form_page', window.location.pathname);
       } catch (e) {
         // Silent — attribution is nice-to-have, never blocks the form.
       }
+
+      // Legacy variable names used in body builder below.
+      var source = firstTouch.utm_source || '';
+      var referrer = firstTouch.referrer || '';
 
       var form = document.getElementById('sample-form');
       if (!form) return;
@@ -488,9 +561,23 @@
         lines.push('', 'Thanks,', name);
 
         // Attribution footer — out-of-band so it doesn't confuse the parser.
-        if (source || referrer) {
+        // The reply-scan playbook (Branch 7) extracts these labels into the
+        // intake notes + writes structured columns to free-samples-tracker.csv.
+        // Schema must stay in sync with engine/conversion_events.py SCHEMA.
+        var ft = firstTouch || {};
+        var formPage = '';
+        try { formPage = window.location.pathname; } catch (e) {}
+        var hasAny = source || referrer || ft.utm_medium || ft.utm_campaign ||
+                     ft.utm_content || ft.utm_term || ft.landing_page || formPage;
+        if (hasAny) {
           lines.push('', '---', '(attribution — auto-added by the form)');
           if (source) lines.push('Source: ' + source);
+          if (ft.utm_medium) lines.push('Medium: ' + ft.utm_medium);
+          if (ft.utm_campaign) lines.push('Campaign: ' + ft.utm_campaign);
+          if (ft.utm_content) lines.push('Content: ' + ft.utm_content);
+          if (ft.utm_term) lines.push('Term: ' + ft.utm_term);
+          if (ft.landing_page) lines.push('Landing: ' + ft.landing_page);
+          if (formPage) lines.push('Form-page: ' + formPage);
           if (referrer) lines.push('Referrer: ' + referrer);
         }
 
