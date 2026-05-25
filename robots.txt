@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /ops/
+
 Sitemap: https://outbound.oracleiq.info/sitemap.xml
 
-# Status page intentionally allowed — public ledger
+# /ops/ is operator-facing internal tooling (status dashboard) — not for indexing
 # Sample CSV intentionally allowed — public lead magnet
-# No admin / private paths exist

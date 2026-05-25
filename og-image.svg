@@ -37,7 +37,7 @@
   <g transform="translate(80, 540)">
     <rect width="320" height="44" rx="22" fill="#18181B" stroke="#27272A" stroke-width="1"/>
     <circle cx="22" cy="22" r="4" fill="#22C55E"/>
-    <text x="38" y="29" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#A1A1AA">Autonomous loop · open ledger</text>
+    <text x="38" y="29" font-family="Inter, sans-serif" font-size="15" font-weight="500" fill="#A1A1AA">Refund if any opener reads templated</text>
   </g>
 
   <!-- URL bottom-right -->
