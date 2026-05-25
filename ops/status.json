@@ -1,17 +1,17 @@
 {
-  "as_of_iso": "2026-05-25T12:17:40.754109+00:00",
+  "as_of_iso": "2026-05-25T14:32:56.225054+00:00",
   "sends": {
-    "tracker_files": 2,
-    "total_rows": 12,
-    "sent_rows": 8,
-    "skipped_rows": 4,
+    "tracker_files": 3,
+    "total_rows": 22,
+    "sent_rows": 9,
+    "skipped_rows": 13,
     "replied_rows": 1,
     "paid_rows": 0,
-    "sent_last_7_days": 8,
-    "sent_last_30_days": 8,
+    "sent_last_7_days": 9,
+    "sent_last_30_days": 9,
     "replied_last_7_days": 1,
     "first_send_iso": "2026-05-24T04:22:13+00:00",
-    "last_send_iso": "2026-05-24T23:44:18+00:00"
+    "last_send_iso": "2026-05-25T12:13:30+00:00"
   },
   "free_samples": {
     "requested": 0,
