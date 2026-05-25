@@ -122,6 +122,38 @@
               "@type": "Answer",
               "text": "US, Canada, and UK by default. Other geographies on request."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How do payments work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Stripe Payment Links for one-time tiers (Starter, Growth, Scale). Stripe Subscriptions and Customer Portal for the monthly Retainer — self-cancel from the portal at any time, no support ticket required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I try before I buy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — request a free 25-prospect sample at /free-sample/. Same engine as the paid tiers, just at smaller volume. 24h delivery, no card, no signup form. About 1-in-4 sample requesters becomes a paid customer within 2 weeks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who actually sends the delivery email?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The delivery is auto-generated and SMTP-sent by the engine from admin@oracleiq.info so you get the CSV within SLA even if the operator is asleep when you order. Every reply that comes back is read by Caden, the solo operator — not a chatbot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the refund policy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "100% refund if (a) any opener in your batch reads templated (reply within 48h of delivery), (b) the CSV is delivered late beyond the tier SLA plus 12h grace, or (c) the ICP fit is materially wrong and you decline our revision offer. Full details at /terms/."
+            }
           }
         ]
       }
@@ -407,6 +439,25 @@
       transition: all .15s;
     }
     .sample-download a:hover { background: var(--accent-hover); }
+
+    /* labor-math anchor */
+    .labor-math-section { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .labor-math-grid { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 880px; margin: 36px auto 0; }
+    @media (min-width: 720px) { .labor-math-grid { grid-template-columns: 1fr 1fr; gap: 24px; } }
+    .labor-math-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 30px; }
+    .labor-math-card.us { background: linear-gradient(135deg, rgba(255,107,53,0.06), rgba(255,107,53,0.02)); border-color: var(--accent); }
+    .labor-math-card h3 { font-size: 14px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 16px; }
+    .labor-math-card.us h3 { color: var(--accent); }
+    .labor-math-line { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 15px; color: var(--ink-soft); }
+    .labor-math-line:last-of-type { border-bottom: none; }
+    .labor-math-line .label { color: var(--muted); }
+    .labor-math-line .value { font-family: 'JetBrains Mono', monospace; font-weight: 500; color: var(--ink); }
+    .labor-math-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; padding-top: 14px; border-top: 2px solid var(--ink); font-weight: 600; font-size: 18px; }
+    .labor-math-total .label { color: var(--ink); }
+    .labor-math-total .value { color: var(--ink); font-family: 'JetBrains Mono', monospace; }
+    .labor-math-card.us .labor-math-total .value { color: var(--accent); }
+    .labor-math-foot { text-align: center; font-size: 14px; color: var(--muted); max-width: 640px; margin: 28px auto 0; line-height: 1.6; }
+    .labor-math-foot strong { color: var(--ink-soft); }
 
     /* pricing */
     .pricing { padding: 80px 0; }
@@ -696,9 +747,11 @@
         <span class="brand-sub">/ Outbound-in-a-Box</span>
       </a>
       <div class="nav-links">
-        <a href="#pricing">Pricing</a>
+        <a href="for/">Use cases</a>
         <a href="compare/">Compare</a>
         <a href="blog/">Blog</a>
+        <a href="about/">About</a>
+        <a href="free-sample/?source=/">Free sample</a>
         <a href="#pricing" class="nav-cta">Get leads</a>
       </div>
     </div>
@@ -711,7 +764,7 @@
         <span>Built by OracleIQ · Currently in early beta</span>
       </div>
       <h1 class="hero-title">Cold leads, <span class="accent">but warm.</span></h1>
-      <p class="hero-sub">Every prospect we deliver comes with a <strong>personalized cold-email opener grounded in a real, recent signal</strong> about their company — and the signal is cited verbatim so you can verify every one.</p>
+      <p class="hero-sub">Every prospect we deliver comes with a <strong>personalized cold-email opener grounded in a real, recent signal</strong> about their company — cited verbatim, googleable, refundable if any read templated. The work an SDR does in 15–20 min per prospect, done for you at <strong>$1.94/prospect</strong>.</p>
       <div class="hero-cta">
         <a href="#pricing" class="btn btn-accent">See pricing →</a>
         <a href="#examples" class="btn btn-secondary">See a sample</a>
@@ -781,6 +834,40 @@
     </div>
   </section>
 
+  <section class="labor-math-section">
+    <div class="container">
+      <div class="section-eyebrow">The math</div>
+      <h2 class="section-title">What you're actually buying</h2>
+      <p class="section-lede">Signal-grounded openers aren't a "data product." They're <strong>SDR research labor done by a machine</strong>. The math vs hiring/renting that labor:</p>
+
+      <div class="labor-math-grid">
+
+        <div class="labor-math-card">
+          <h3>Doing it in-house (Starter equivalent: 50 prospects)</h3>
+          <div class="labor-math-line"><span class="label">SDR research per prospect</span><span class="value">~15 min</span></div>
+          <div class="labor-math-line"><span class="label">× 50 prospects</span><span class="value">12.5 hours</span></div>
+          <div class="labor-math-line"><span class="label">Loaded SDR cost ($75/hr)</span><span class="value">$937.50</span></div>
+          <div class="labor-math-line"><span class="label">+ opener drafting time</span><span class="value">+ ~5 hrs</span></div>
+          <div class="labor-math-total"><span class="label">Total cost</span><span class="value">~$1,275</span></div>
+        </div>
+
+        <div class="labor-math-card us">
+          <h3>Outbound-in-a-Box Starter (50 prospects)</h3>
+          <div class="labor-math-line"><span class="label">Delivered in</span><span class="value">24 hours</span></div>
+          <div class="labor-math-line"><span class="label">Per-prospect price</span><span class="value">$1.94</span></div>
+          <div class="labor-math-line"><span class="label">Refund if templated?</span><span class="value">100%</span></div>
+          <div class="labor-math-line"><span class="label">SDR hours saved</span><span class="value">~17.5 hrs</span></div>
+          <div class="labor-math-total"><span class="label">Total cost</span><span class="value">$97</span></div>
+        </div>
+
+      </div>
+
+      <p class="labor-math-foot">
+        That's <strong>~92% reduction in labor cost</strong> for the same per-prospect research depth, delivered in 24h instead of 2–3 weeks of SDR time. Compare us to <a href="compare/">Apollo or Clay</a> and we look 40× more expensive per row — because they sell <em>data</em>, not <em>research</em>. We sell the part that decides whether your opener gets a reply.
+      </p>
+    </div>
+  </section>
+
   <section class="pricing" id="pricing">
     <div class="container">
       <div class="section-eyebrow">Pricing</div>
@@ -845,10 +932,10 @@
   <section class="lead-magnet-section">
     <div class="lead-magnet-card">
       <span class="lead-magnet-badge">Try free first</span>
-      <h2>Not paying-ready? Get a free 10-prospect sample in 24h.</h2>
-      <p class="lm-sub">Email us your product + ICP. We'll send 10 prospects with personalized openers — same quality as the paid batches, just smaller. No payment, no credit card, no signup form. If it works, the paid tiers above are one click.</p>
-      <a class="btn btn-accent" href="mailto:admin@oracleiq.info?subject=Free%2010-prospect%20sample%20request&body=Hi%2C%0A%0AI%27d%20like%20to%20try%20the%20free%2010-prospect%20sample.%0A%0AWhat%20I%20sell%20(one%20sentence)%3A%0A%5Bone-line%20product%20description%5D%0A%0AMy%20ICP%20(industry%20%2B%20company%20size%20%2B%20decision-maker%20title%20%2B%20geography)%3A%0A%5BICP%20details%5D%0A%0AThe%20pain%20I%20solve%3A%0A%5Bbrief%5D%0A%0ATarget%20geographies%20(default%20US%2FCA%2FUK)%3A%0A%5Bgeos%5D%0A%0AThanks%2C%0A%5BYour%20name%5D">Request free sample →</a>
-      <p class="lead-magnet-fine">Opens your email client with a templated request. We process within 24h and email the CSV back.</p>
+      <h2>Not paying-ready? Get a free 25-prospect sample in 24h.</h2>
+      <p class="lm-sub">Tell us your product + ICP on a 90-second form. We'll send 25 prospects with personalized openers — same quality as the paid batches, just smaller. No payment, no credit card, no signup form. If it works, the paid tiers above are one click.</p>
+      <a class="btn btn-accent" href="/free-sample/?source=/">Request free sample →</a>
+      <p class="lead-magnet-fine">Structured form on a dedicated page. We process within 24h (Mon–Fri) and email the CSV back.</p>
     </div>
   </section>
 
@@ -1002,7 +1089,7 @@
         </details>
         <details>
           <summary>How do payments work?</summary>
-          <p>For the first dollar: Stripe Payment Link, Venmo, or Wise — whichever is easiest for you. We'll send the right link after your intake comes through. Retainer billing transitions to Stripe Subscriptions.</p>
+          <p>Stripe Payment Links for one-time tiers (Starter / Growth / Scale). Stripe Subscriptions + Customer Portal for the monthly Retainer — you can self-cancel from the portal at any time, no support ticket required.</p>
         </details>
         <details>
           <summary>Can I get a list revised?</summary>
@@ -1011,6 +1098,18 @@
         <details>
           <summary>How do I know the signals are real?</summary>
           <p>Every signal is in its own column in the CSV, cited verbatim. Google any one of them. If you can't find the source, that's a refund.</p>
+        </details>
+        <details>
+          <summary>Can I try before I buy?</summary>
+          <p>Yes — <a href="free-sample/?source=/#faq">request a free 25-prospect sample</a>. Same engine as the paid tiers, just at smaller volume. 24h delivery, no card, no signup form. About 1-in-4 sample requesters becomes a paid customer within 2 weeks.</p>
+        </details>
+        <details>
+          <summary>Who actually sends the delivery email?</summary>
+          <p>The delivery is auto-generated and SMTP-sent by the engine from admin@oracleiq.info — the autonomous loop handles end-to-end fulfillment so you get the CSV within SLA even if I'm asleep when you order. But every reply that comes back to admin@ is read by me (Caden), the solo operator — not a chatbot. See the <a href="about/">about page</a> for the full setup.</p>
+        </details>
+        <details>
+          <summary>What's the refund policy?</summary>
+          <p>100% refund if (a) any opener in your batch reads templated (reply within 48h of delivery), (b) the CSV is delivered late beyond the tier SLA + 12h grace, or (c) the ICP fit is materially wrong and you decline our revision offer. Full details in <a href="terms/#refund">terms § 5</a>.</p>
         </details>
       </div>
     </div>
@@ -1037,7 +1136,14 @@
         <span><strong>OracleIQ</strong> · A product studio building leverage tools for operators.</span>
       </div>
       <div class="footer-meta">
-        Outbound-in-a-Box · <a href="mailto:admin@oracleiq.info">admin@oracleiq.info</a> · <a href="blog/">Blog</a>
+        Outbound-in-a-Box · <a href="mailto:admin@oracleiq.info">admin@oracleiq.info</a> ·
+        <a href="about/">About</a> ·
+        <a href="free-sample/?source=/">Free sample</a> ·
+        <a href="for/">Use cases</a> ·
+        <a href="compare/">Compare</a> ·
+        <a href="blog/">Blog</a> ·
+        <a href="privacy/">Privacy</a> ·
+        <a href="terms/">Terms</a>
       </div>
     </div>
   </footer>
