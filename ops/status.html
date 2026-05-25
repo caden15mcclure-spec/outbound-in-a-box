@@ -52,6 +52,11 @@
     .card.good .card-value { color: var(--good); }
 
     h2.section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 40px 0 16px; }
+    h3.sub-section-title { font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin: 28px 0 10px; }
+    .funnel-empty { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 20px 24px; color: var(--muted); font-size: 14px; line-height: 1.55; margin: 8px 0 24px; }
+    .funnel-empty p { margin: 0; }
+    .funnel-empty strong { color: var(--ink); }
+    .funnel-empty code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--bg); padding: 1px 6px; border-radius: 4px; color: var(--ink); }
 
     .row-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     .row-table th, .row-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 14px; }
@@ -101,7 +106,7 @@
       <span class="hero-pill"><span class="dot"></span> Autonomous loop running</span>
       <h1>Status &amp; build-in-public ledger</h1>
       <p class="lede">A live look at the autonomous loop running this business. Updated whenever the loop ticks. We're new — these numbers will look small for a while. We publish them anyway.</p>
-      <p class="as-of">Last refresh: 2026-05-25T21:08:39.082146+00:00 · Auto-refresh every 15 min</p>
+      <p class="as-of">Last refresh: 2026-05-25T21:19:53.790110+00:00 · Auto-refresh every 15 min</p>
     </section>
 
     <div class="halts ok"><div class="halt-title">✅ No active halts</div><p class="halt-note">All autonomous channels green.</p></div>
@@ -162,11 +167,18 @@
         <tr><td>Vibe spend today</td><td class="mono">$0.70</td><td class="mono">soft $5.00 / hard $15.00</td></tr>
         <tr><td>Rolling bounce rate</td><td class="mono">0.0% (n=2)</td><td class="mono">hard 5.0%</td></tr>
         <tr><td>First send</td><td class="mono">2026-05-24</td><td class="mono">—</td></tr>
-        <tr><td>Last send</td><td class="mono">8.9h ago</td><td class="mono">—</td></tr>
+        <tr><td>Last send</td><td class="mono">9.1h ago</td><td class="mono">—</td></tr>
         <tr><td>Tracker files</td><td class="mono">3</td><td class="mono">—</td></tr>
         <tr><td>UTC day / week</td><td class="mono">2026-05-25 · 2026-05-25</td><td class="mono">resets at 00:00 UTC</td></tr>
       </tbody>
     </table>
+
+    
+    <h2 class="section-title">Attribution &amp; conversion funnel</h2>
+    <div class="funnel-empty">
+      <p><strong>No conversion events recorded yet.</strong> The first row will land when a free-sample request or Stripe payment fires. Every <code>/free-sample/</code> link across the 37 site pages now carries <code>utm_source</code> + <code>utm_campaign</code>, so once volume arrives it'll attribute per-channel and per-page here automatically.</p>
+    </div>
+
 
     <div class="target">
       <div class="target-eyebrow">Stated target</div>
