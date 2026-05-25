@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://outbound.oracleiq.info/sitemap.xml
+
+# Status page intentionally allowed — public ledger
+# Sample CSV intentionally allowed — public lead magnet
+# No admin / private paths exist
