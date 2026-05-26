@@ -159,7 +159,12 @@
     .footer-inner{max-width:960px;margin:0 auto;padding:0 24px;}
     footer a{color:var(--muted);border-bottom:1px solid transparent;}
     footer a:hover{border-bottom-color:var(--muted);}
-  </style>
+      /* footer: canonical v1 — added by scripts/normalize_footer.py */
+    footer .footer-copy { margin: 0 0 8px; }
+    footer .footer-nav { margin: 0; font-size: 12px; color: var(--muted-light, #A1A1AA); }
+    footer .footer-nav a { color: var(--muted-light, #A1A1AA); }
+    /* end footer: canonical v1 */
+</style>
 </head>
 <body>
     <nav>
@@ -294,10 +299,11 @@
       <a href="/#pricing" class="secondary">See pricing</a>
     </div>
   </main>
-  <footer>
+    <footer>
+    <!-- footer: canonical v1 -->
     <div class="footer-inner">
-      © 2026 OracleIQ. Outbound-in-a-Box is a product of OracleIQ. ·
-      <a href="/">Home</a> · <a href="/about/">About</a> · <a href="/free-sample/?utm_source=compare&utm_campaign=zoominfo&source=/compare/zoominfo.html">Free sample</a> · <a href="/blog/">Blog</a> · <a href="/compare/">Compare</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="mailto:admin@oracleiq.info">admin@oracleiq.info</a>
+      <p class="footer-copy"><strong>OracleIQ</strong> · A product studio building leverage tools for operators. <a href="/">outbound.oracleiq.info</a> · <a href="mailto:admin@oracleiq.info">admin@oracleiq.info</a></p>
+      <p class="footer-nav">© 2026 OracleIQ · <a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/compare/">Compare</a> · <a href="/for/">Use cases</a> · <a href="/about/">About</a> · <a href="/free-sample/?utm_source=compare&utm_campaign=zoominfo&source=/compare/zoominfo.html">Free sample</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></p>
     </div>
   </footer>
 </body>
