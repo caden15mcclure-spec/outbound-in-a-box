@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-05-28T00:24:18.902834+00:00",
+  "as_of_iso": "2026-05-28T02:24:18.302435+00:00",
   "sends": {
     "tracker_files": 4,
     "total_rows": 42,
@@ -29,10 +29,10 @@
     "last_poll_unix": 0
   },
   "safety_summary": {
-    "utc_day": "2026-05-27",
+    "utc_day": "2026-05-28",
     "utc_week_start": "2026-05-25",
     "cold_send": {
-      "today": 3,
+      "today": 0,
       "soft": 20,
       "hard": 30
     },
@@ -46,7 +46,7 @@
       "hard": 25
     },
     "vibe_credit_usd": {
-      "today": 12.0,
+      "today": 0.0,
       "soft": 5.0,
       "hard": 15.0
     },
