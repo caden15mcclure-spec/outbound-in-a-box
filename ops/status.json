@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-05-28T22:18:21.384250+00:00",
+  "as_of_iso": "2026-05-29T00:18:28.076125+00:00",
   "sends": {
     "tracker_files": 5,
     "total_rows": 60,
@@ -14,14 +14,14 @@
     "last_send_iso": "2026-05-28T12:29:22+00:00"
   },
   "free_samples": {
-    "requested": 0,
+    "requested": 1,
     "delivered": 0,
     "converted_paid": 0
   },
   "intake": {
-    "pending": 1,
+    "pending": 0,
     "processed": 0,
-    "failed": 0,
+    "failed": 1,
     "total_orders_ever": 1
   },
   "stripe": {
@@ -29,24 +29,24 @@
     "last_poll_unix": 0
   },
   "safety_summary": {
-    "utc_day": "2026-05-28",
+    "utc_day": "2026-05-29",
     "utc_week_start": "2026-05-25",
     "cold_send": {
-      "today": 4,
+      "today": 0,
       "soft": 20,
       "hard": 30
     },
     "reply_autosend": {
-      "today": 1,
+      "today": 0,
       "hard": 50
     },
     "free_sample": {
-      "this_week": 1,
+      "this_week": 0,
       "soft": 15,
       "hard": 25
     },
     "vibe_credit_usd": {
-      "today": 4.25,
+      "today": 0.0,
       "soft": 5.0,
       "hard": 15.0
     },
