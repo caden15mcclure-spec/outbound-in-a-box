@@ -106,7 +106,7 @@
       <span class="hero-pill"><span class="dot"></span> Autonomous loop running</span>
       <h1>Status &amp; build-in-public ledger</h1>
       <p class="lede">A live look at the autonomous loop running this business. Updated whenever the loop ticks. We're new — these numbers will look small for a while. We publish them anyway.</p>
-      <p class="as-of">Last refresh: 2026-05-30T20:21:17.225170+00:00 · Auto-refresh every 15 min</p>
+      <p class="as-of">Last refresh: 2026-05-30T22:16:58.702185+00:00 · Auto-refresh every 15 min</p>
     </section>
 
     <div class="halts ok"><div class="halt-title">✅ No active halts</div><p class="halt-note">All autonomous channels green.</p></div>
@@ -167,7 +167,7 @@
         <tr><td>Vibe spend today</td><td class="mono">$0.00</td><td class="mono">soft $5.00 / hard $15.00</td></tr>
         <tr><td>Rolling bounce rate</td><td class="mono">0.0% (n=12)</td><td class="mono">hard 5.0%</td></tr>
         <tr><td>First send</td><td class="mono">2026-05-24</td><td class="mono">—</td></tr>
-        <tr><td>Last send</td><td class="mono">55.9h ago</td><td class="mono">—</td></tr>
+        <tr><td>Last send</td><td class="mono">57.8h ago</td><td class="mono">—</td></tr>
         <tr><td>Tracker files</td><td class="mono">5</td><td class="mono">—</td></tr>
         <tr><td>UTC day / week</td><td class="mono">2026-05-30 · 2026-05-25</td><td class="mono">resets at 00:00 UTC</td></tr>
       </tbody>
@@ -175,9 +175,48 @@
 
     
     <h2 class="section-title">Attribution &amp; conversion funnel</h2>
-    <div class="funnel-empty">
-      <p><strong>No conversion events recorded yet.</strong> The first row will land when a free-sample request or Stripe payment fires. Every <code>/free-sample/</code> link across the 37 site pages now carries <code>utm_source</code> + <code>utm_campaign</code>, so once volume arrives it'll attribute per-channel and per-page here automatically.</p>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-title">Total events tracked</div>
+        <div class="card-value">1</div>
+        <div class="card-sub">last event 2026-05-28T11:17</div>
+      </div>
+      <div class="card accent">
+        <div class="card-title">Sample requests</div>
+        <div class="card-value">1</div>
+        <div class="card-sub">0 delivered</div>
+      </div>
+      <div class="card good">
+        <div class="card-title">Paid conversions</div>
+        <div class="card-value">0</div>
+        <div class="card-sub">0.0% sample→paid</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Unique contacts</div>
+        <div class="card-value">1</div>
+        <div class="card-sub">across all conversion events</div>
+      </div>
     </div>
+
+
+    <h3 class="sub-section-title">By acquisition channel</h3>
+    <table class="row-table">
+      <thead><tr><th>Channel</th><th>Sample req</th><th>Delivered</th><th>Paid</th><th>Conv%</th><th>Unique</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">direct</td><td class="mono">1</td><td class="mono">0</td><td class="mono">0</td><td class="mono">0.0%</td><td class="mono">1</td></tr>
+      </tbody>
+    </table>
+
+
+    <h3 class="sub-section-title">Top campaigns / pages</h3>
+    <table class="row-table">
+      <thead><tr><th>Campaign / page</th><th>Channel</th><th>Sample req</th><th>Paid</th><th>Conv%</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">(no-campaign)</td><td class="mono">direct</td><td class="mono">1</td><td class="mono">0</td><td class="mono">0.0%</td></tr>
+      </tbody>
+    </table>
+
 
 
     <div class="target">
