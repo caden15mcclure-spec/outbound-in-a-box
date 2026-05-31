@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-05-31T04:16:35.246788+00:00",
+  "as_of_iso": "2026-05-31T06:16:33.987780+00:00",
   "sends": {
     "tracker_files": 5,
     "total_rows": 60,
@@ -7,9 +7,9 @@
     "skipped_rows": 45,
     "replied_rows": 1,
     "paid_rows": 0,
-    "sent_last_7_days": 15,
+    "sent_last_7_days": 9,
     "sent_last_30_days": 15,
-    "replied_last_7_days": 1,
+    "replied_last_7_days": 0,
     "first_send_iso": "2026-05-24T04:22:13+00:00",
     "last_send_iso": "2026-05-28T12:29:22+00:00"
   },
