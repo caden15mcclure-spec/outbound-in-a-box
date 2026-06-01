@@ -1,10 +1,10 @@
 {
-  "as_of_iso": "2026-06-01T12:16:51.310671+00:00",
+  "as_of_iso": "2026-06-01T14:16:51.803610+00:00",
   "sends": {
-    "tracker_files": 5,
-    "total_rows": 60,
+    "tracker_files": 6,
+    "total_rows": 72,
     "sent_rows": 15,
-    "skipped_rows": 45,
+    "skipped_rows": 57,
     "replied_rows": 1,
     "paid_rows": 0,
     "sent_last_7_days": 6,
@@ -48,7 +48,7 @@
       "hard": 25
     },
     "vibe_credit_usd": {
-      "today": 0.45,
+      "today": 0.7,
       "soft": 5.0,
       "hard": 15.0
     },
