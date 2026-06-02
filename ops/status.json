@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-06-01T22:16:50.715484+00:00",
+  "as_of_iso": "2026-06-02T00:16:59.357075+00:00",
   "sends": {
     "tracker_files": 6,
     "total_rows": 72,
@@ -29,14 +29,14 @@
     "last_poll_unix": 0
   },
   "safety_summary": {
-    "utc_day": "2026-06-01",
+    "utc_day": "2026-06-02",
     "utc_week_start": "2026-06-01",
     "cold_send": {
       "today": 0,
-      "soft": 7,
-      "hard": 8,
-      "warmup_day": 10,
-      "ramp_max": 8
+      "soft": 11,
+      "hard": 12,
+      "warmup_day": 11,
+      "ramp_max": 12
     },
     "reply_autosend": {
       "today": 0,
@@ -48,7 +48,7 @@
       "hard": 25
     },
     "vibe_credit_usd": {
-      "today": 0.8,
+      "today": 0.0,
       "soft": 5.0,
       "hard": 15.0
     },
