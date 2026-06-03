@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-06-03T12:16:41.932498+00:00",
+  "as_of_iso": "2026-06-03T14:17:08.692843+00:00",
   "sends": {
     "tracker_files": 7,
     "total_rows": 79,
@@ -7,7 +7,7 @@
     "skipped_rows": 57,
     "replied_rows": 1,
     "paid_rows": 0,
-    "sent_last_7_days": 6,
+    "sent_last_7_days": 4,
     "sent_last_30_days": 15,
     "replied_last_7_days": 0,
     "first_send_iso": "2026-05-24T04:22:13+00:00",
@@ -32,7 +32,7 @@
     "utc_day": "2026-06-03",
     "utc_week_start": "2026-06-01",
     "cold_send": {
-      "today": 0,
+      "today": 4,
       "soft": 11,
       "hard": 12,
       "warmup_day": 12,
@@ -54,7 +54,7 @@
     },
     "bounce_rate_pct": {
       "rolling": 0.0,
-      "n": 14,
+      "n": 18,
       "hard": 5.0
     }
   },
