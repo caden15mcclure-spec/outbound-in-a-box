@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-06-03T22:16:50.833014+00:00",
+  "as_of_iso": "2026-06-04T00:16:56.510625+00:00",
   "sends": {
     "tracker_files": 7,
     "total_rows": 79,
@@ -35,7 +35,7 @@
       "today": 4,
       "soft": 11,
       "hard": 12,
-      "warmup_day": 12,
+      "warmup_day": 13,
       "ramp_max": 12
     },
     "reply_autosend": {
