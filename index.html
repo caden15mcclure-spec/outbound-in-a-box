@@ -620,6 +620,41 @@
     .lead-magnet-section .btn:hover { background: var(--accent); }
     .lead-magnet-fine { font-size: 13px; color: var(--muted); margin-top: 14px; }
 
+    /* pipeline desk callout */
+    .pipeline-desk-section { padding: 64px 0; background: var(--ink); color: var(--surface); }
+    .pipeline-desk-wrap {
+      max-width: 920px; margin: 0 auto; padding: 0 24px;
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center;
+    }
+    .pipeline-desk-section h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+    .pipeline-desk-section p { color: var(--muted-light); font-size: 16px; line-height: 1.6; }
+    .pipeline-desk-math {
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+    }
+    .pipeline-desk-row {
+      display: flex; justify-content: space-between; gap: 16px;
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      font-size: 14px;
+    }
+    .pipeline-desk-row:last-child { border-bottom: none; }
+    .pipeline-desk-row span { color: var(--muted-light); }
+    .pipeline-desk-row strong { color: var(--surface); text-align: right; }
+    .pipeline-desk-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .pipeline-desk-actions .btn-secondary { background: transparent; color: var(--surface); border-color: rgba(255,255,255,0.28); }
+    .pipeline-desk-actions .btn-secondary:hover { border-color: var(--surface); }
+    @media (max-width: 780px) {
+      .pipeline-desk-wrap { grid-template-columns: 1fr; }
+    }
+
     /* comparison */
     .compare-section { padding: 64px 0; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .compare-wrap { max-width: 980px; margin: 32px auto 0; overflow-x: auto; }
@@ -759,6 +794,7 @@
       <div class="nav-links">
         <a href="openers/">Examples</a>
         <a href="for/">Use cases</a>
+        <a href="pipeline-desk/">Pipeline Desk</a>
         <a href="compare/">Compare</a>
         <a href="blog/">Blog</a>
         <a href="free-sample/?source=/">Free sample</a>
@@ -947,6 +983,25 @@
           <a class="pricing-cta" href="https://buy.stripe.com/cNi8wP3h0bs04ax1J8fAc03">Order Retainer</a>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="pipeline-desk-section">
+    <div class="pipeline-desk-wrap">
+      <div>
+        <h2>Need weekly pipeline, not another one-time CSV?</h2>
+        <p>Pipeline Desk is the higher-touch recurring offer: 1,000 signal-grounded prospects per month, weekly drops, desk notes, and ICP refinement from reply signal. You keep your sender. We run the research desk.</p>
+        <div class="pipeline-desk-actions">
+          <a class="btn btn-accent" href="pipeline-desk/">See Pipeline Desk</a>
+          <a class="btn btn-secondary" href="mailto:admin@oracleiq.info?subject=Pipeline%20Desk%20beta%20application">Apply for beta</a>
+        </div>
+      </div>
+      <div class="pipeline-desk-math" aria-label="Pipeline Desk MRR math">
+        <div class="pipeline-desk-row"><span>Beta price</span><strong>$750/mo</strong></div>
+        <div class="pipeline-desk-row"><span>Standard price</span><strong>$1,000/mo</strong></div>
+        <div class="pipeline-desk-row"><span>Monthly output</span><strong>1,000 prospects</strong></div>
+        <div class="pipeline-desk-row"><span>$10k MRR path</span><strong>10 standard accounts</strong></div>
       </div>
     </div>
   </section>
