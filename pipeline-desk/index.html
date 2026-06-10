@@ -6,7 +6,7 @@
   <title>OracleIQ Pipeline Desk &middot; Weekly signal-grounded prospecting</title>
   <meta name="description" content="A weekly prospecting desk for founder-led B2B teams: signal-grounded prospects, personalized openers, and ICP refinement without taking over your sending stack." />
   <meta property="og:title" content="OracleIQ Pipeline Desk" />
-  <meta property="og:description" content="Weekly signal-grounded prospecting for founder-led B2B teams. You keep your sender. We run the research desk." />
+  <meta property="og:description" content="Weekly signal-grounded prospecting for founder-led B2B teams. Start with a free Pipeline Leak Audit. You keep your sender. We run the research desk." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://outbound.oracleiq.info/pipeline-desk/" />
   <meta property="og:image" content="https://outbound.oracleiq.info/og-image.png" />
@@ -310,6 +310,51 @@
       font-size: 17px;
       line-height: 1.55;
     }
+    .audit-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr);
+      gap: 36px;
+      align-items: start;
+    }
+    .audit-kicker {
+      color: var(--blue);
+      font: 650 13px/1.2 "JetBrains Mono", ui-monospace, monospace;
+      margin-bottom: 12px;
+    }
+    .audit-note {
+      margin-top: 18px;
+      padding-left: 16px;
+      border-left: 3px solid var(--emerald);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+    }
+    .audit-item {
+      background: var(--surface);
+      padding: 22px 20px;
+      min-height: 170px;
+    }
+    .audit-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+    .audit-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
     .ops-rail {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -496,9 +541,10 @@
     }
     .footer-links a:hover { color: var(--ink); }
     @media (max-width: 960px) {
-      .hero-grid, .deliverables-grid, .pricing-layout, .sprint {
+      .hero-grid, .deliverables-grid, .pricing-layout, .sprint, .audit-layout {
         grid-template-columns: 1fr;
       }
+      .audit-grid { grid-template-columns: 1fr; }
       .ops-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .ops-step:nth-child(2) { border-right: 0; }
       .ops-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -550,7 +596,7 @@
         <a href="/openers/">Examples</a>
         <a href="/for/">Use cases</a>
         <a href="/#pricing">Batch pricing</a>
-        <a class="nav-cta" href="mailto:admin@oracleiq.info?subject=Pipeline%20Desk%20fit%20check">Request fit check</a>
+        <a class="nav-cta" href="mailto:admin@oracleiq.info?subject=Pipeline%20Leak%20Audit&body=Product%3A%0AICP%3A%0ASender%20stack%3A%0ALast%20outbound%20result%20you%20trust%3A%0AWhat%20you%20want%20more%20of%3A%0ATiming%3A">Request leak audit</a>
       </div>
     </div>
   </nav>
@@ -560,9 +606,9 @@
       <div class="container hero-grid">
         <div>
           <h1>OracleIQ Pipeline Desk</h1>
-          <p class="hero-copy">A weekly prospecting desk for founder-led B2B teams. We build your prospect pipeline, write signal-grounded openers, and refine the ICP from reply signal. <strong>The fit check is free; payment starts only after scope and first delivery are scheduled.</strong></p>
+          <p class="hero-copy">A weekly prospecting desk for founder-led B2B teams. Start with a free Pipeline Leak Audit: we read your offer, ICP, sender stack, and last campaign result, then sketch the first weekly desk. <strong>No card, no custom sample, no delivery promise until scope and scheduling are agreed.</strong></p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:admin@oracleiq.info?subject=Pipeline%20Desk%20fit%20check">Request fit check</a>
+            <a class="btn btn-primary" href="mailto:admin@oracleiq.info?subject=Pipeline%20Leak%20Audit&body=Product%3A%0AICP%3A%0ASender%20stack%3A%0ALast%20outbound%20result%20you%20trust%3A%0AWhat%20you%20want%20more%20of%3A%0ATiming%3A">Request leak audit</a>
             <a class="btn" href="#weekly-desk">See the weekly desk</a>
           </div>
           <div class="hero-proof" aria-label="Pipeline Desk proof points">
@@ -571,8 +617,8 @@
               <span class="proof-label">prospects and openers in weekly drops</span>
             </div>
             <div class="proof-item">
-              <span class="proof-value">Free fit check</span>
-              <span class="proof-label">no charge until the desk is scheduled</span>
+              <span class="proof-value">Free leak audit</span>
+              <span class="proof-label">first-week segment and trigger read</span>
             </div>
             <div class="proof-item">
               <span class="proof-value">0 sender risk</span>
@@ -587,7 +633,7 @@
               <div class="desk-title">Weekly desk drop</div>
               <div class="desk-date mono">Weekly cadence &middot; CSV + desk note</div>
             </div>
-            <div class="status-dot">Fit checks open</div>
+            <div class="status-dot">Leak audits open</div>
           </div>
           <div class="desk-table-wrap">
             <table>
@@ -628,6 +674,31 @@
             </table>
           </div>
           <div class="desk-note">Every row ships with verified email, LinkedIn URL, firmographics, cited signal, subject line, opener, and full first-touch draft.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band alt">
+      <div class="container audit-layout">
+        <div>
+          <div class="audit-kicker">FREE DIAGNOSTIC</div>
+          <h2>Request a Pipeline Leak Audit</h2>
+          <p class="section-lede">The first step is not buying a list. It is finding the exact place your weekly account feed is probably leaking: broad ICP, weak trigger discipline, or no repeatable research desk.</p>
+          <p class="audit-note">Send your product, ICP, sender stack, monthly target-account volume, and the last outbound result you trust. The reply is a written desk sketch, not a custom enriched sample.</p>
+        </div>
+        <div class="audit-grid" aria-label="Pipeline Leak Audit steps">
+          <div class="audit-item">
+            <strong>1. Diagnose the leak</strong>
+            <span>We look for the targeting failure that would make more sends create noise instead of pipeline.</span>
+          </div>
+          <div class="audit-item">
+            <strong>2. Sketch week one</strong>
+            <span>You get one segment recommendation, two public trigger patterns, and the obvious exclusions.</span>
+          </div>
+          <div class="audit-item">
+            <strong>3. Decide if beta fits</strong>
+            <span>If the desk can absorb 250 researched prospects/week, we talk $750/mo. If not, we say that.</span>
+          </div>
         </div>
       </div>
     </section>
@@ -694,8 +765,8 @@
             <span class="price">$750</span>
             <span class="price-unit">/mo beta</span>
           </div>
-          <p>First beta accounts get the desk at $750/mo while the workflow tightens. The fit check is free; no charge happens until scope, start date, and first delivery expectations are agreed.</p>
-          <a class="btn" href="mailto:admin@oracleiq.info?subject=Pipeline%20Desk%20fit%20check">Request fit check</a>
+          <p>First beta accounts get the desk at $750/mo while the workflow tightens. The leak audit is free; no charge happens until scope, start date, and first delivery expectations are agreed.</p>
+          <a class="btn" href="mailto:admin@oracleiq.info?subject=Pipeline%20Leak%20Audit&body=Product%3A%0AICP%3A%0ASender%20stack%3A%0ALast%20outbound%20result%20you%20trust%3A%0AWhat%20you%20want%20more%20of%3A%0ATiming%3A">Request leak audit</a>
         </div>
         <div>
           <div class="section-head">
@@ -726,7 +797,7 @@
             </div>
             <div class="sprint-day">
               <div class="day-label">Days 4-7</div>
-              <div class="day-copy"><strong>Send five manual fit notes</strong><span>Show the ICP issue, one public signal pattern, and what their first weekly desk would contain.</span></div>
+              <div class="day-copy"><strong>Send five leak-audit notes</strong><span>Show the ICP issue, two public trigger patterns, and what their first weekly desk would contain.</span></div>
             </div>
             <div class="sprint-day">
               <div class="day-label">Days 8-11</div>
@@ -739,9 +810,9 @@
           </div>
         </div>
         <div class="cta-panel">
-          <h3>Want to see if the desk fits?</h3>
+          <h3>Want a Pipeline Leak Audit?</h3>
           <p>Send your product, ICP, current sender stack, monthly target-account volume, and the last outbound result you trust.</p>
-          <a class="btn btn-dark" href="mailto:admin@oracleiq.info?subject=Pipeline%20Desk%20fit%20check&body=Product%3A%0AICP%3A%0ASending%20stack%3A%0AMonthly%20target-account%20volume%3A%0ALast%20outbound%20result%20you%20trust%3A%0ATiming%3A">Request fit check</a>
+          <a class="btn btn-dark" href="mailto:admin@oracleiq.info?subject=Pipeline%20Leak%20Audit&body=Product%3A%0AICP%3A%0ASender%20stack%3A%0AMonthly%20target-account%20volume%3A%0ALast%20outbound%20result%20you%20trust%3A%0AWhat%20you%20want%20more%20of%3A%0ATiming%3A">Request leak audit</a>
         </div>
       </div>
     </section>
