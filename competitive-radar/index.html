@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OracleIQ Competitive Radar | Weekly competitor-change briefs</title>
+  <meta name="description" content="Weekly competitor-change briefs for lean B2B SaaS teams. Track pricing, messaging, product, proof, and GTM shifts without building a full analyst function." />
+  <meta property="og:title" content="OracleIQ Competitive Radar" />
+  <meta property="og:description" content="Weekly competitor-change briefs for lean B2B SaaS teams. No dashboard required. Monday exec brief." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://outbound.oracleiq.info/competitive-radar/" />
+  <meta property="og:image" content="https://outbound.oracleiq.info/og-image.png" />
+  <meta property="og:site_name" content="OracleIQ" />
+  <link rel="canonical" href="https://outbound.oracleiq.info/competitive-radar/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "OracleIQ Competitive Radar",
+    "provider": {
+      "@type": "Organization",
+      "name": "OracleIQ",
+      "url": "https://outbound.oracleiq.info/"
+    },
+    "description": "Weekly competitor-change briefs for B2B SaaS teams. Tracks pricing, messaging, product, proof, and GTM shifts.",
+    "url": "https://outbound.oracleiq.info/competitive-radar/",
+    "offers": {
+      "@type": "Offer",
+      "name": "Competitive Radar Beta",
+      "price": "500",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "500",
+        "priceCurrency": "USD",
+        "billingDuration": "P1M",
+        "unitText": "month"
+      },
+      "availability": "https://schema.org/LimitedAvailability"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #fbfcfd;
+      --surface: #ffffff;
+      --ink: #101624;
+      --ink-soft: #243044;
+      --muted: #637083;
+      --line: #dce3ec;
+      --line-strong: #b9c7d6;
+      --green: #0b8f67;
+      --green-dark: #07664a;
+      --blue: #1d5fd1;
+      --blue-soft: #eaf2ff;
+      --gold: #b57900;
+      --gold-soft: #fff5dc;
+      --subtle: #f1f5f9;
+      --radius: 8px;
+      --shadow: 0 18px 46px rgba(16, 22, 36, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.58;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .mono, code { font-family: "JetBrains Mono", ui-monospace, monospace; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 252, 253, 0.93);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 750;
+      font-size: 15px;
+    }
+    .brand-logo { width: 28px; height: 28px; flex: 0 0 auto; }
+    .brand-sub { color: var(--muted); font-size: 13px; font-weight: 450; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      padding: 8px 14px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      color: var(--surface);
+      background: var(--ink);
+      font-weight: 650;
+    }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .hero {
+      padding: 72px 0 62px;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(420px, 1.08fr);
+      gap: 52px;
+      align-items: center;
+    }
+    .eyebrow {
+      color: var(--green-dark);
+      font: 650 13px/1.2 "JetBrains Mono", ui-monospace, monospace;
+      margin-bottom: 16px;
+    }
+    h1 {
+      max-width: 640px;
+      font-size: 68px;
+      line-height: 0.98;
+      letter-spacing: 0;
+      font-weight: 820;
+      margin-bottom: 24px;
+    }
+    .hero-copy {
+      max-width: 640px;
+      font-size: 19px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+    .hero-copy strong { color: var(--ink-soft); font-weight: 680; }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line-strong);
+      font-weight: 680;
+      font-size: 14px;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--ink); }
+    .btn-primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: var(--surface);
+    }
+    .btn-primary:hover { background: var(--green-dark); border-color: var(--green-dark); }
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 660px;
+    }
+    .proof-item {
+      border-top: 2px solid var(--line);
+      padding-top: 12px;
+    }
+    .proof-value {
+      display: block;
+      color: var(--ink);
+      font-weight: 760;
+      font-size: 18px;
+    }
+    .proof-label {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .brief-preview {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .brief-top {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      background: var(--subtle);
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+    }
+    .brief-title { font-size: 14px; font-weight: 760; }
+    .brief-meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--green-dark);
+      font-size: 12px;
+      font-weight: 740;
+      white-space: nowrap;
+    }
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--green);
+    }
+    .brief-body { padding: 20px 18px 18px; display: grid; gap: 16px; }
+    .signal-row {
+      display: grid;
+      grid-template-columns: 115px minmax(0, 1fr);
+      gap: 14px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .signal-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .signal-tag {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 4px 9px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 720;
+    }
+    .signal-tag.gold { background: var(--gold-soft); color: var(--gold); }
+    .signal-tag.green { background: #e9fbf4; color: var(--green-dark); }
+    .signal-copy strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .signal-copy span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    section.band {
+      padding: 68px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    section.band.alt { background: var(--surface); }
+    .section-head {
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 42px;
+      line-height: 1.08;
+      letter-spacing: 0;
+      margin-bottom: 14px;
+    }
+    .section-lede {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+    }
+    .tile {
+      min-height: 190px;
+      background: var(--surface);
+      padding: 24px 22px;
+    }
+    .tile-num {
+      color: var(--blue);
+      font: 650 13px/1.2 "JetBrains Mono", ui-monospace, monospace;
+      margin-bottom: 22px;
+    }
+    .tile h3 {
+      font-size: 18px;
+      line-height: 1.24;
+      margin-bottom: 8px;
+    }
+    .tile p { color: var(--muted); font-size: 14px; line-height: 1.5; }
+    .pricing {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(420px, 1.14fr);
+      gap: 44px;
+      align-items: center;
+    }
+    .price-panel {
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--surface);
+      padding: 32px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .price {
+      font-size: 72px;
+      line-height: .9;
+      letter-spacing: 0;
+      font-weight: 820;
+    }
+    .price-unit { color: #bac5d3; font-size: 18px; font-weight: 650; }
+    .price-panel p {
+      color: #c8d1df;
+      font-size: 15px;
+      line-height: 1.55;
+      margin-bottom: 22px;
+    }
+    .price-panel .btn {
+      width: 100%;
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--surface);
+    }
+    .plain-list {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--line);
+    }
+    .plain-row {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      background: var(--surface);
+    }
+    .plain-row div {
+      padding: 15px 17px;
+      font-size: 14px;
+    }
+    .plain-row div:first-child {
+      color: var(--muted);
+      font-weight: 740;
+      background: var(--subtle);
+    }
+    .plain-row div:last-child { color: var(--ink-soft); }
+    .cta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, .7fr);
+      gap: 34px;
+      align-items: center;
+    }
+    .cta-note {
+      border-left: 3px solid var(--green);
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    footer {
+      padding: 38px 0 54px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a:hover { color: var(--ink); }
+    @media (max-width: 960px) {
+      h1 { font-size: 52px; }
+      h2 { font-size: 34px; }
+      .hero-grid, .pricing, .cta { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav-inner { padding: 12px 18px; }
+      .brand-sub { display: none; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .container { padding: 0 18px; }
+      .hero { padding: 52px 0 44px; }
+      h1 { font-size: 40px; }
+      h2 { font-size: 30px; }
+      .proof { grid-template-columns: 1fr; }
+      section.band { padding: 52px 0; }
+      .signal-row { grid-template-columns: 1fr; gap: 8px; }
+      .plain-row { grid-template-columns: 1fr; }
+      .price { font-size: 58px; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="brand" aria-label="OracleIQ home">
+        <span class="brand-logo">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="#101624"/>
+            <circle cx="16" cy="16" r="9" stroke="#0b8f67" stroke-width="2.2" fill="none"/>
+            <circle cx="19.5" cy="12.5" r="2.8" fill="#1d5fd1"/>
+          </svg>
+        </span>
+        <span>OracleIQ</span>
+        <span class="brand-sub">/ Competitive Radar</span>
+      </a>
+      <div class="nav-links">
+        <a href="/pipeline-desk/">Pipeline Desk</a>
+        <a href="/sample-delivery.csv">Sample CSV</a>
+        <a class="nav-cta" href="mailto:admin@oracleiq.info?subject=Competitive%20Radar%20beta&body=Company%3A%0AWebsite%3A%0ATop%203%20competitors%3A%0AWho%20uses%20the%20brief%3A%0AWhat%20changed%20recently%3A">Request beta brief</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">WEEKLY COMPETITOR INTELLIGENCE</div>
+          <h1>OracleIQ Competitive Radar</h1>
+          <p class="hero-copy">Track competitor pricing, messaging, product, proof, and GTM shifts without hiring an analyst or buying an enterprise CI platform. <strong>The beta is a Monday executive brief, not a dashboard.</strong></p>
+          <div class="actions">
+            <a class="btn btn-primary" href="mailto:admin@oracleiq.info?subject=Competitive%20Radar%20beta&body=Company%3A%0AWebsite%3A%0ATop%203%20competitors%3A%0AWho%20uses%20the%20brief%3A%0AWhat%20changed%20recently%3A">Request beta brief</a>
+            <a class="btn" href="#brief-preview">See the brief</a>
+          </div>
+          <div class="proof" aria-label="Competitive Radar proof points">
+            <div class="proof-item">
+              <span class="proof-value">3 competitors</span>
+              <span class="proof-label">watched in the beta</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">$500/mo</span>
+              <span class="proof-label">first validation accounts</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-value">No portal</span>
+              <span class="proof-label">brief first, platform later</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="brief-preview" id="brief-preview">
+          <div class="brief-top">
+            <div>
+              <div class="brief-title">Monday Competitive Radar</div>
+              <div class="brief-meta mono">3 competitors watched | 2 material shifts</div>
+            </div>
+            <div class="status">Brief ready</div>
+          </div>
+          <div class="brief-body">
+            <div class="signal-row">
+              <div><span class="signal-tag gold">Pricing</span></div>
+              <div class="signal-copy">
+                <strong>Competitor A added enterprise packaging language</strong>
+                <span>Sales should expect procurement and security objections earlier in the cycle.</span>
+              </div>
+            </div>
+            <div class="signal-row">
+              <div><span class="signal-tag">Messaging</span></div>
+              <div class="signal-copy">
+                <strong>Competitor B shifted hero copy toward RevOps buyers</strong>
+                <span>Update battlecards before demos with operations-heavy accounts this week.</span>
+              </div>
+            </div>
+            <div class="signal-row">
+              <div><span class="signal-tag green">Product</span></div>
+              <div class="signal-copy">
+                <strong>Competitor C published a new integration page</strong>
+                <span>Monitor whether this becomes a pricing page CTA or remains a documentation-only launch.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>What gets watched</h2>
+          <p class="section-lede">The beta watches the surfaces your sales, product, and marketing teams already care about, then turns raw changes into a short operating brief.</p>
+        </div>
+        <div class="grid-3">
+          <div class="tile">
+            <div class="tile-num">01</div>
+            <h3>Pricing and packaging</h3>
+            <p>Plan names, trials, enterprise language, usage limits, add-ons, and CTAs that change deal framing.</p>
+          </div>
+          <div class="tile">
+            <div class="tile-num">02</div>
+            <h3>Messaging and ICP</h3>
+            <p>Homepage, comparison, product, and campaign copy that signals a move into your buyer segment.</p>
+          </div>
+          <div class="tile">
+            <div class="tile-num">03</div>
+            <h3>Product and proof</h3>
+            <p>Changelogs, integrations, docs, case studies, security pages, and customer logos worth escalating.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container pricing">
+        <div class="price-panel">
+          <div class="price-row">
+            <span class="price">$500</span>
+            <span class="price-unit">/mo beta</span>
+          </div>
+          <p>Three named competitors, weekly Monday brief, human review before delivery. Cancel anytime. Standard target price is $1,000/mo after the brief proves retention.</p>
+          <a class="btn" href="mailto:admin@oracleiq.info?subject=Competitive%20Radar%20beta&body=Company%3A%0AWebsite%3A%0ATop%203%20competitors%3A%0AWho%20uses%20the%20brief%3A%0AWhat%20changed%20recently%3A">Request beta brief</a>
+        </div>
+        <div>
+          <div class="section-head">
+            <h2>Built to test fast</h2>
+            <p class="section-lede">The first version proves whether the intelligence is worth paying for. It avoids the parts that slow down a beta.</p>
+          </div>
+          <div class="plain-list">
+            <div class="plain-row"><div>Included</div><div>Weekly executive brief, monitored public pages, material-change summary, sales/product implications.</div></div>
+            <div class="plain-row"><div>Excluded</div><div>No login, dashboard, Slack bot, team seats, or automated billing during validation.</div></div>
+            <div class="plain-row"><div>Best fit</div><div>Lean B2B SaaS teams with named competitors and active sales or positioning pressure.</div></div>
+            <div class="plain-row"><div>Bad fit</div><div>Teams that need enterprise procurement, legal review, or exhaustive market research before a small beta.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band alt">
+      <div class="container cta">
+        <div>
+          <h2>Start with a sample brief</h2>
+          <p class="section-lede">Send your company, website, top three competitors, and who would use the brief. The sample should prove whether the weekly read is worth a beta slot.</p>
+        </div>
+        <div>
+          <p class="cta-note">No dashboard build before proof. No payment link before fit. The beta only starts after the monitored competitors and Monday delivery expectations are agreed.</p>
+          <div class="actions" style="margin: 22px 0 0;">
+            <a class="btn btn-primary" href="mailto:admin@oracleiq.info?subject=Competitive%20Radar%20sample%20brief&body=Company%3A%0AWebsite%3A%0ATop%203%20competitors%3A%0AWho%20uses%20the%20brief%3A%0AWhat%20changed%20recently%3A">Request sample brief</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>OracleIQ Competitive Radar &middot; Weekly competitor-change briefs</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/pipeline-desk/">Pipeline Desk</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="mailto:admin@oracleiq.info">admin@oracleiq.info</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
