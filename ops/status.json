@@ -1,5 +1,5 @@
 {
-  "as_of_iso": "2026-06-13T05:16:39.215112+00:00",
+  "as_of_iso": "2026-06-13T07:16:32.382929+00:00",
   "sends": {
     "tracker_files": 7,
     "total_rows": 79,
@@ -29,7 +29,7 @@
     "last_poll_unix": 0
   },
   "safety_summary": {
-    "utc_day": "2026-06-12",
+    "utc_day": "2026-06-13",
     "utc_week_start": "2026-06-08",
     "cold_send": {
       "today": 0,
